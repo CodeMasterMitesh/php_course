@@ -1,0 +1,99 @@
+students                                                                           city
+id  name   age   date_of_birth   gender  phone       city_id                       id city_name
+1   Mitesh   31    1993-08-18     M      9033889873  1                             1   Ahmedabad   
+                                                                                   2   Rajkot
+
+CREATE TABLE students (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+age INT,
+date_of_birth date,
+phone VARCHAR(13) NOT NULL,
+city_id INT,
+FOREIGN KEY(city_id) REFERENCES city(id)
+ON DELETE SET NULL
+ON UPDATE CASCADE
+);
+
+CREATE TABLE city (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+);
+
+
+
+INSERT INTO student (name, age,date_of_birth,phone, city_id) 
+VALUES ('Mitesh Prajapati', 31, "1993-08-18","9033889873",1),
+('Bharat Rangani', 33,"1993-03-16","8000765330",4),
+('Jignesh Patel', 35,"1989-08-10","8469200947",3),
+('Tejas Panchal', 26,"1995-07-25","1234567890",5),
+('Sanket Suthar', 23,"1999-11-05","9922163726",2);
+
+
+ALTER TABLE students 
+ADD FOREIGN KEY(city_id) REFERENCES city(id)
+
+
+
+inner join
+left join
+right join
+cross join
+
+
+inner join
+left join
+right join 
+cross join
+
+inner join
+example
+SELECT * FROM tableName INNER JOIN joinTableName ON tableName.FOREIGN_KEY = joinTableName.PRIMARY_KEY;
+SELECT * FROM students INNER JOIN city ON students.city_id = city.id;
+SELECT s.id,s.name,s.age,s.date_of_birth,s.gender,s.phone,c.city_name FROM students AS s INNER JOIN city AS c ON 
+s.city_id = c.id;
+SELECT s.id,s.name,s.age,s.date_of_birth,s.gender,s.phone,c.city_name FROM students AS s INNER JOIN city AS c ON
+ s.city_id = c.id
+WHERE c.city_name = "Ahmedabad";
+SELECT s.id,s.name,s.age,s.date_of_birth,s.gender,s.phone,c.city_name FROM students AS s INNER JOIN city AS c ON
+ s.city_id = c.id WHERE c.city_name = "Ahmedabad" ORDER BY name DESC;
+
+
+
+
+left join 
+	left table    righttable
+ ->  students and city 
+ 
+ ex.
+ SELECT * FROM students LEFT JOIN city ON students.city_id = city.id;
+ SELECT s.id,s.name,s.date_of_birth,s.gender,s.phone,c.city_name FROM students as s LEFT JOIN city as c ON 
+ s.city_id = c.id;
+ SELECT s.id,s.name,s.date_of_birth,s.gender,s.phone,c.city_name FROM students as s LEFT JOIN city as c ON 
+ s.city_id = c.id WHERE c.city_name = "Surat";
+
+
+right join 
+
+left table right table 
+students    city 
+
+ex.
+SELECT s.id,s.name,s.date_of_birth,s.gender,s.phone,c.city_name FROM students as s RIGHT JOIN city as c ON 
+s.city_id = c.id;
+
+
+cross join
+SELECT * FROM students CROSS JOIN city;
+
+
+
+-> multiple joins in inner join , left join , right join  
+
+SELECT * FROM tableName INNER JOIN table2Name 
+ON tableName.FOREIGN_KEY = table2Name.PRIMARY_KEY
+INNER JOIN ON tableName.FOREIGN_KEY = table3Name.PRIMARY_KEY;
+
+
+SELECT s.id,s.name,s.date_of_birth,s.gender,s.phone,c.city_name,cs.course_name FROM students as s INNER JOIN city as c ON s.city_id = c.id INNER JOIN course as cs on s.course_id = cs.id;
+SELECT s.id,s.name,s.date_of_birth,s.gender,s.phone,c.city_name,cs.course_name FROM students as s LEFT JOIN city as c ON s.city_id = c.id left JOIN course as cs on s.course_id = cs.id;

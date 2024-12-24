@@ -1,0 +1,27 @@
+Oracle
+redis
+mariadb
+
+
+
+
+->  List Of RDBMS
+MySQL
+MySQLI_Server
+mariadb
+
+
+
+-> 
+SQL  -> structure query language -> universal 
+
+insert 
+update 
+delete 
+select 
+
+
+
+string 
+numric
+date/time 

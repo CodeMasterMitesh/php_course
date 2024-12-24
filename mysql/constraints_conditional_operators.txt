@@ -1,0 +1,66 @@
+INSERT INTO tableName (id,name,age) VALUES (1,"Mitesh",30);
+
+INSERT - data store in database table 
+SELECT - data get from database
+update - column data update 
+delete - data delete from database table 
+
+
+// 12/12/2024  
+Constraints  -> Restriction
+
+-> NOT NULL
+-> UNIQUE
+-> CHECK
+-> DEFAULT
+
+-> PRIMARY KEY
+-> FOREGN KEY
+
+
+CREATE TABLE studentDetails (
+	id int NOT NULL UNIQUE,
+	name VARCHAR(50) NOT NULL,
+	age int NOT NULL CHECK(age>=18),
+	gender VARCHAR(1) NOT NULL,
+	phone int UNIQUE,
+	city VARCHAR(25) NOT NULL DEFAULT 'Ahmedabad'
+);
+
+
+INSERT INTO studentdetails (id,name,age,gender,phone,city) 
+VALUES 
+(4,"Meera",21,'F',"7894561230","Surat"),
+(5,"Sahil",24,'M',"7894568230","Rajkot"),
+(6,"Jagdish",26,'F',"7114561230","Ahmedabad"),
+(7,"Jagruti",25,'F',"7894500230","Surat"),
+(8,"Pankaj",29,'M',"9194561230","Rajkot"),
+(9,"Suraj",23,'M',"6354594521","Ahmedabad"),
+(10,"Chaman",26,'M',"9922557761","Surat");
+
+query for equal to 
+SELECT columnNam1,columnNam2,columnNam3 FROM `tableName` WHERE columnName = value;
+ex. SELECT name,age FROM `studentdetails` WHERE age = 25;
+
+
+query for greter than
+SELECT * FROM `tableName` WHERE columnName > value;
+SELECT * FROM `studentdetails` WHERE age > 25;
+
+query for greterthan equalto 
+
+SELECT * FROM `tableName` WHERE columnName >= value;
+SELECT * FROM `studentdetails` WHERE age >= 25;
+
+query for lessthan
+
+SELECT * FROM `tableName` WHERE columnName < value;
+SELECT * FROM `studentdetails` WHERE id < 5;
+
+query for lessthan equalto
+SELECT * FROM `tableName` WHERE columnName <= value;
+SELECT * FROM `studentdetails` WHERE id <= 5;
+
+query for NOT equalto
+SELECT * FROM `studentdetails` WHERE city <> "Ahmedabad";
+SELECT * FROM `studentdetails` WHERE city != "Ahmedabad";

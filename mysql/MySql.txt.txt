@@ -1,0 +1,30 @@
+SQL (Structured Query Language)
+Definition: SQL is a standard programming language used to manage and manipulate relational databases. 
+It includes commands to retrieve, insert, update, and delete data, as well as create and modify database structures.
+Purpose: SQL provides a universal syntax for interacting with databases, making it the foundation of 
+relational database management systems (RDBMS).
+
+MySQL
+Definition: MySQL is an open-source relational database management system (RDBMS) that uses SQL as its query language.
+Developed by: MySQL AB (later acquired by Oracle Corporation).
+Usage: Commonly used for web applications, such as WordPress, e-commerce platforms, and more.
+
+Key Features:
+Multi-threaded and multi-user.
+Supports various storage engines like InnoDB, MyISAM, etc.
+Used with programming languages like PHP, Python, and Java.
+Limitations: Some proprietary features introduced after Oracle's acquisition led to forks like MariaDB.
+
+
+MariaDB
+Definition: MariaDB is a fork of MySQL created by the original developers of MySQL, intended to remain open-source and community-driven.
+Reason for Fork: Concerns over Oracle's acquisition of MySQL led to the creation of MariaDB.
+
+
+Key Features:
+Fully compatible with MySQL: Can replace MySQL seamlessly in most applications.
+Improved performance: Focuses on speed, reliability, and scalability.
+Open-source: Entirely community-driven, ensuring future-proofing.
+Enhanced features: Includes improvements like new storage engines, better replication, and security enhancements
+
+Adoption: Many organizations and Linux distributions now prefer MariaDB as the default RDBMS over MySQL.

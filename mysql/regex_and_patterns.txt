@@ -1,0 +1,59 @@
+pattern strat with 'a' => a%
+ex,
+SELECT * FROM `studentdetails` WHERE name LIKE 'a%';
+
+pattern end with 'a' => %a
+ex.
+SELECT * FROM `studentdetails` WHERE name LIKE '%i';
+
+pattern any position with 'pa' => %pa%
+ex.
+SELECT * FROM `studentdetails` WHERE name LIKE '%i%';
+
+pattern start 'a' and end with 'i' => a%i%
+ex
+SELECT * FROM `studentdetails` WHERE name LIKE m%i;
+
+withight pattern 
+ex. 
+SELECT * FROM `studentdetails` WHERE city LIKE 'Ahmedabad';
+
+pattern a in second position => '_a%'
+ex.
+SELECT * FROM `studentdetails` WHERE name LIKE '_a%';
+
+pattern a in second position => '_ag%'
+ex.
+SELECT * FROM `studentdetails` WHERE name LIKE '_ag%';
+
+pattern a in third position => '__a%'
+SELECT * FROM `studentdetails` WHERE name LIKE '__a%';
+
+
+
+
+REGULAR EXPRESION 
+
+REGEX 
+serach last match char in column a$
+ex.
+SELECT * FROM `studentdetails` WHERE name REGEXP 'ti$';
+
+serach first match char in column a$
+ex.
+SELECT * FROM `studentdetails` WHERE phone REGEXP '^9';
+
+match any char in column '[abc]'
+ex.
+select * from `studentdetails` where name REGEXP '[mit]';
+
+match any char in begining in column '^[abc]'
+ex
+select * from `studentdetails` where name REGEXP '^[mit]';
+
+match range in column '[a-z]h'
+select * from `studentdetails` where name REGEXP '[a-g]h';
+
+match range in column 'a|b|c'
+ex.
+select * from `studentdetails` where name REGEXP 'mi|sh|ja';

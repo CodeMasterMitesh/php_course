@@ -1,0 +1,58 @@
+database create 
+
+-> database name -> 
+*query for creating database*
+	
+ CREATE DATABASE studentDB;
+
+studentDatabase
+
+-> table name ->
+
+-> studentDetails 
+
+	-> colums in table 
+		firstname string(100)
+		lastname string(100)
+		date_of_birth date
+		email    string(50)
+		phone    string(13)
+		address  text
+		
+		create table query 
+		
+		CREATE TABLE studentDetails(
+			id int,
+			first_name VARCHAR(100),
+			last_name VARCHAR(100),
+			date_of_birth date,
+			email VARCHAR(25),
+			phone VARCHAR(13),
+			address TEXT,
+			gender VARCHAR(6)
+		);
+		
+		
+		how to insert data into database 
+		
+		INSERT INTO tableName(all colums commas seprate) VALUES (all values comma seprate);
+		
+		INSERT INTO studentdetails(id,roll_number,first_name,last_name,date_of_birth,email,phone,address,gender) 
+		VALUES(1,"1","Mayur","Patel","2001-07-25","mayur@gmail.com","9898987878","krishnanagar,ahmedabad","Male");
+		
+		
+		query for view data in Mysql
+		
+		select * from dbname.tableName;
+
+		select * from tableName;
+
+		particular column data show 
+		
+		SELECT columnName1,columnName2,columnName3 FROM tableName;
+		
+		set column alias name while data select
+		
+		SELECT id,first_name as Name,phone as Mobile FROM `studentdetails`;
+
+		

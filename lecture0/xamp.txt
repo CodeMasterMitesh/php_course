@@ -1,0 +1,7 @@
+Apache :-  php file 
+MySQL : database 
+php : php8.3
+
+xamp
+wamp
+laragon

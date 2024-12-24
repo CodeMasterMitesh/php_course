@@ -1,0 +1,63 @@
+1. Early Beginnings (1994)
+Creator: PHP was created by Rasmus Lerdorf, a Danish-Canadian programmer.
+Original Purpose: It was initially a set of simple scripts called Personal 
+Home Page Tools (PHP Tools) to track visits to his online résumé.
+Early Features: Lerdorf wrote PHP to handle forms and communicate with databases, 
+making it easier to create dynamic web pages.
+
+2. PHP/FI (1995)
+PHP 1.0 Release: Lerdorf made the PHP tools available to the public in 1995, 
+calling it PHP/FI (Personal Home Page / Form Interpreter).
+Key Features: Basic functionality for web forms and database interactions, 
+allowing developers to embed code directly into HTML.
+
+3. PHP 2.0 (1997)
+Wider Adoption: PHP/FI 2.0 was released in November 1997, 
+and it started gaining popularity among developers.
+Key Features: Expanded functionality, better syntax, and 
+more robust support for working with databases like MySQL.
+
+4. PHP 3.0 (1998)
+Complete Overhaul: Two developers, Andi Gutmans and Zeev Suraski, 
+joined Rasmus Lerdorf and rewrote the language’s core, which became PHP 3.0.
+Key Features: Modular system, support for a wider range of databases, and 
+object-oriented programming features. PHP 3.0 also introduced the recursive acronym 
+PHP: Hypertext Preprocessor.Significance: It marked the turning point when 
+PHP became a full-fledged scripting language for building dynamic websites.
+
+5. PHP 4.0 (2000)
+Zend Engine: Gutmans and Suraski developed the Zend Engine, which powered PHP 4.0, 
+significantly improving performance.
+Key Features: Enhanced scalability, session handling, output buffering, and improved security measures.
+Popularity Surge: PHP 4.0 led to widespread use, powering millions of websites worldwide.
+
+6. PHP 5.0 (2004)
+Advanced Object-Oriented Programming: PHP 5 introduced much better support for 
+object-oriented programming (OOP), making it easier to build large, maintainable applications.
+Key Features: New Zend Engine (Zend Engine 2), exception handling, PDO (PHP Data Objects) for
+ improved database interactions, and support for XML.
+Adoption: PHP 5 solidified PHP’s dominance as the go-to language for web development, 
+used by major platforms like Facebook, WordPress, and Drupal.
+
+7. PHP 6.0 Development (2005-2010)
+Unicode Failure: The development of PHP 6.0 focused on supporting Unicode, 
+but the project failed due to complexity and performance issues. PHP 6 never officially reached release status.
+
+8. PHP 5.3 to 5.6 (2010-2014)
+Incremental Improvements: Despite the failure of PHP 6, 
+PHP 5.3 through 5.6 introduced key improvements like namespaces, 
+late static binding, anonymous functions, and performance boosts.
+
+9. PHP 7.0 (2015)
+Performance Revolution: PHP 7 brought significant performance 
+improvements, thanks to the new Zend Engine 3. It was often twice as fast as PHP 5.
+Key Features: Improved memory usage, scalar type declarations, 
+return type declarations, and anonymous classes.
+PHP 6 Skip: The version number jumped from PHP 5.x to PHP 7, 
+skipping PHP 6, to avoid confusion after the failed PHP 6 project.
+
+10. PHP 8.0 (2020)
+JIT Compilation: PHP 8 introduced Just-In-Time (JIT) compilation, which allows PHP code to be 
+compiled at runtime, further improving performance for certain tasks.
+Key Features: Union types, attributes, match expressions, and other modern features to 
+keep up with new development practices.
