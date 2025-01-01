@@ -32,13 +32,38 @@
     </style>
 </head>
 <body>
+    <?php 
+        include ("connect_db.php");
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $sql = "SELECT id,email,password,name FROM students WHERE email = '".$email."' LIMIT 1";
+            $query = mysqli_query($conn,$sql);
+            $data = mysqli_fetch_assoc($query);
+
+            // debug($data);
+
+            if($password == $data['password']){
+                $_SESSION['student_id'] = $data['id'];
+                $_SESSION['student_name'] = $data['name'];
+                header("Location: index.php");
+            }else{
+                echo "<script>
+                alert('Password Wrong');
+                window.location.href = 'login.php';
+              </script>";
+            }
+        }
+    ?>
     <div class="login-container">
         <img src="https://via.placeholder.com/80" alt="Admin Logo" class="logo">
         <h4 class="text-center mb-4">Student Admin Panel Login</h4>
-        <form action="login_process.php" method="POST">
+        <form action="login.php" method="POST">
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>

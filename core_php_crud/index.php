@@ -1,5 +1,14 @@
 <?php
 include ("connect_db.php");
+// debug($_SESSION);
+if(!$_SESSION['student_id']){
+    header("Location: login.php");
+}
+
+// session  -> data store over server 
+// like user id 
+// username
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

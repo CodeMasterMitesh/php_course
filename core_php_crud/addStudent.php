@@ -10,7 +10,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Registration Form</h2>
-        <form id="registrationForm" action="Insert_Student_Registration_Data.php" method="POST" class="needs-validation" novalidate>
+        <form id="registrationForm" action="insert_Student.php" method="POST" class="needs-validation" novalidate>
             <!-- Name -->
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -53,6 +53,25 @@
                 <label for="phone" class="form-label">Phone</label>
                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
                 <div class="invalid-feedback">Please enter a valid phone number.</div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
+                <div class="invalid-feedback">Please enter a valid email id.</div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="text" class="form-control" id="confirmPassword" name="confirm_password" required>
             </div>
             
             <!-- City -->
