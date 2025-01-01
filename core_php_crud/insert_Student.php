@@ -18,12 +18,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $query = mysqli_query($conn,$sql);
 
     if($query){
-        ?>
-        <script>
-            alert("Data inserted successfully");
-        </script>
-        <?php
-        header("Location: show_registration_data.php");
+        echo "<script>
+            alert('Data inserted successfully');
+            window.location.href = 'index.php';
+        </script>";
     }else{
         echo "Data not inserted";
     }
