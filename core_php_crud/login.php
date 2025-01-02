@@ -37,7 +37,7 @@
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = hash('sha256',$_POST['password']);
 
             $sql = "SELECT id,email,password,name FROM students WHERE email = '".$email."' LIMIT 1";
             $query = mysqli_query($conn,$sql);

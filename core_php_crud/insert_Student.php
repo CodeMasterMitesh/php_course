@@ -10,11 +10,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $gender = $_POST['gender'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $password = hash('SHA256',$_POST['password']);
+    $confirm_password = hash('SHA256',$_POST['confirm_password']);
     $city_id = $_POST['city_id'];
     $course_id = $_POST['course_id'];
     $percentage = $_POST['percentage'];
+
+    // debug($password);
+    // echo "<br>";
+    // debug($confirm_password);
+    // exit;
 
     if($password != $confirm_password){
         // echo "Confrim Passoword Not Match With Password";

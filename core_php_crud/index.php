@@ -4,7 +4,7 @@ include ("connect_db.php");
 if(!$_SESSION['student_id']){
     header("Location: login.php");
 }
-
+$student_id = $_SESSION['student_id'];
 // session  -> data store over server 
 // like user id 
 // username
@@ -34,6 +34,9 @@ if(!$_SESSION['student_id']){
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Admin_Panel.php">Admin Panel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -81,13 +84,18 @@ if(!$_SESSION['student_id']){
                     // debug($total_rows);
                     // exit;
 
+                    // $sql = "SELECT s.id, s.name, s.age, s.date_of_birth, s.gender, s.phone, s.percentage, c.city_name, cs.course_name 
+                    //         FROM students AS s 
+                    //         LEFT JOIN city AS c ON s.city_id = c.id 
+                    //         LEFT JOIN course AS cs ON s.course_id = cs.id LIMIT $offset,$limit";
+
                     $sql = "SELECT s.id, s.name, s.age, s.date_of_birth, s.gender, s.phone, s.percentage, c.city_name, cs.course_name 
                             FROM students AS s 
                             LEFT JOIN city AS c ON s.city_id = c.id 
-                            LEFT JOIN course AS cs ON s.course_id = cs.id LIMIT $offset,$limit";
+                            LEFT JOIN course AS cs ON s.course_id = cs.id WHERE s.id = '".$student_id."'";
                     $query = mysqli_query($conn, $sql);
-
-                    while ($row = mysqli_fetch_assoc($query)) {
+                    $row = mysqli_fetch_assoc($query);
+                    // while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                     <tr>
                         <td><?php echo $row['id'] ?></td>
@@ -103,7 +111,7 @@ if(!$_SESSION['student_id']){
                         <td><a href="deleteStudent.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a></td>
                     </tr>
                 <?php
-                    }
+                    // }
                 ?>
                 </tbody>
             </table>
