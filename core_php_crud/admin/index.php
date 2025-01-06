@@ -1,5 +1,5 @@
 <?php
-include ("connect_db.php");
+include ("../connect_db.php");
 // debug(session_id());
 // debug(session_name());
 if(!$_SESSION['student_id']){

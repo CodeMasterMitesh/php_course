@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login Pannel</title>
+    <title>Admin Panel - Login</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -59,7 +59,7 @@
     ?>
     <div class="login-container">
         <img src="https://via.placeholder.com/80" alt="Admin Logo" class="logo">
-        <h4 class="text-center mb-4">Student Login</h4>
+        <h4 class="text-center mb-4">Admin Panel Login</h4>
         <form action="login.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
