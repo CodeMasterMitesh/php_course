@@ -2,7 +2,7 @@
 include("connect_db.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // var_dump($_POST);
+    var_dump($_POST);
     // Retrieve and sanitize input data
     $name = trim($_POST['name']);
     $age = intval($_POST['age']);
