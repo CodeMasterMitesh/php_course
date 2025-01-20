@@ -1,0 +1,4 @@
+AJAX stands for Asynchronous JavaScript and XML. 
+It is a technique used in web development to 
+create interactive and dynamic web pages by allowing parts of a 
+web page to update without requiring the entire page to reload.
