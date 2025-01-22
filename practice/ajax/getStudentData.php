@@ -20,7 +20,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         <td>{$row['city_name']}</td>
         <td>{$row['percentage']}</td>
         <td>{$row['course_name']}</td>
-        <td><a href='editStudent.php?id={$row['id']}' class='btn btn-primary'>Edit</a></td>
+        <td><button data-eid={$row['id']} class='btn btn-danger edit-button'>Edit</button></td>
         <td><button data-id={$row['id']} class='btn btn-danger delete-button'>Delete</button></td>
     </tr>";
 }

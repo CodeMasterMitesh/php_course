@@ -3,13 +3,15 @@ include ("connect_db.php");
 include ("header.php");
 ?>
 <body>
-    <!-- Navbar -->
-    
+    <?php 
+        include("nav.php"); 
+        include("addStudentModal.php");
+    ?>
 
     <!-- Content -->
     <div class="container-fluid mt-5">
-        <a href="addStudent.php" class="btn btn-primary">Add Data</a>
-        <button class="btn btn-primary showData">Show Data</button>
+        <a class="btn btn-primary addStudent">Add Data</a>
+        <!-- <button class="btn btn-primary showData">Show Data</button> -->
         <h2 class="text-center">Student Records</h2>
 
         <!-- Search Input -->
@@ -39,21 +41,102 @@ include ("header.php");
             </table>
         </div>
     </div>
+    <div id="error-message"></div>
+    <div id="success-message"></div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
-            $(".showData").on("click",function(e){
+             // show student data ajax
+             function loadData(){
+                // $(".showData").on("click",function(e){
+                    $.ajax({
+                        url : "getStudent.php",
+                        type : "POST",
+                        success : function(data){
+                            // console.log(data);
+                            $("#studentData").html(data);
+                        }
+                    });
+                // });
+             }
+             loadData();
+             
+            // open modal
+            $(".addStudent").on("click",function(e){
+                $("#addStudentModal").show();
+            });
+            // close modal
+            $("#close-btn").on("click",function(e){
+                $("#addStudentModal").hide();
+            });
+
+            // add student data ajax 
+            $(".saveData").on("click",function(e){
+                e.preventDefault();
+                var formData = {
+                    name : $("#name").val(),
+                    age : $("#age").val(),
+                    date_of_birth : $("#date_of_birth").val(),
+                    gender : $("input[name='gender']:checked").val(),
+                    phone : $("#phone").val(),
+                    email : $("#email").val(),
+                    password : $("#password").val(),
+                    confirm_password : $("#confirmPassword").val(),
+                    city_id : $("#city_id").val(),
+                    course_id : $("#course_id").val(),
+                    percentage : $("#percentage").val(),
+                }
                 $.ajax({
-                    url : "getStudent.php",
+                    url : "insert_Student.php",
                     type : "POST",
+                    data : formData,
                     success : function(data){
                         // console.log(data);
-                        $("#studentData").html(data);
+                        if(data == 1){
+                            $("#registrationForm")[0].reset();
+                            loadData();
+                            $("#success-message").html("Data Insert Sucessfully").slideDown();
+                            setInterval(function(){
+                                $("#success-message").slideUp();
+                                $("#addStudentModal").hide();
+                            },2000);
+                            $("#error-message").slideUp();
+                        }else{
+                            // alert(data);
+                            $("#error-message").html(data).slideDown();
+                            setInterval(function(){
+                                $("#error-message").slideUp();
+                            },3000);
+                            $("#success-message").slideUp();
+                        }
                     }
                 });
+            });
+            // delete data
+            $(document).on("click",".delete-btn",function(){
+            if(confirm("Do you Really want to delete this record?")){
+                var studentId = $(this).data("id");
+                // alert(studentId);
+                    var element = this;
+                    $.ajax({
+                        url:"deleteStudent.php",
+                        type :"POST",
+                        data : {id:studentId},
+                        success : function(data){
+                            if(data == 1){
+                                $(element).closest("tr").fadeOut();
+                            }else{
+                                $("#error-message").html("Error: " + data).slideDown();
+                                setTimeout(function () {
+                                    $("#error-message").slideUp();
+                                }, 2000); // Show error message for 3 seconds
+                            }
+                        }
+                    });
+                }
             });
         });
     </script>
