@@ -18,7 +18,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         <td>{$row['city_name'] }</td>
         <td>{$row['percentage']}</td>
         <td>{$row['course_name']}</td>
-        <td><a href='editStudent.php?id={$row['id']}' class='btn btn-primary'>Edit</a></td>
+        <td><a data-eid={$row['id']} class='btn btn-primary edit-btn'>Edit</a></td>
         <td><a class='btn btn-danger delete-btn' data-id={$row['id']}>Delete</a></td>
     </tr>";
     echo $output;

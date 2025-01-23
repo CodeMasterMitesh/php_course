@@ -6,6 +6,7 @@ include ("header.php");
     <?php 
         include("nav.php"); 
         include("addStudentModal.php");
+        include("editStudentModal.php");
     ?>
 
     <!-- Content -->
@@ -64,11 +65,11 @@ include ("header.php");
              }
              loadData();
              
-            // open modal
+            // open addform modal
             $(".addStudent").on("click",function(e){
                 $("#addStudentModal").show();
             });
-            // close modal
+            // close addform modal
             $("#close-btn").on("click",function(e){
                 $("#addStudentModal").hide();
             });
@@ -115,6 +116,69 @@ include ("header.php");
                     }
                 });
             });
+            // open editform modal
+            $(document).on("click",".edit-btn",function(){
+                // $("#editstudentModal").show();
+                var studentId = $(this).data("eid");
+                // alert(studentId);
+                $.ajax({
+                    url : "getEditStudentDetails.php",
+                    type : "POST",
+                    data : {id:studentId},
+                    success : function(data){
+                        // console.log(data);
+                        $("#editstudentModal").html(data).show();
+                    }
+                });
+            });
+            // close editform modal
+            $(document).on("click","#editClose-btn",function(){
+                $("#editstudentModal").hide();
+            });
+            // update student data
+            $(document).on("click",".update-btn",function(e){
+                var name = $("#editStudent_name").val();
+                // console.log(name);
+                e.preventDefault();
+                var formData = {
+                    studentId : $("#student_id").val(),
+                    Student_name : $("#editStudent_name").val(),
+                    Student_age : $("#editStudent_age").val(),
+                    Student_date_of_birth : $("#editStudent_date_of_birth").val(),
+                    Student_gender : $("input[name='gender']:checked").val(),
+                    Student_phone : $("#editStudent_phone").val(),
+                    Student_city_id : $("#editStudent_city_id").val(),
+                    Student_course_id : $("#editStudent_course_id").val(),
+                    Student_percentage : $("#editStudent_percentage").val(),
+                }
+                $.ajax({
+                    url : "updateStudent.php",
+                    type : "POST",
+                    data : formData,
+                    success : function(data){
+                        console.log(data);
+                        if(data == 1){
+                            // $("#registrationForm")[0].reset();
+                            loadData();
+                            $("#success-message").html("Data Update Sucessfully").slideDown();
+                            setInterval(function(){
+                                $("#success-message").slideUp();
+                                $("#editstudentModal").hide();
+                            },2000);
+                            $("#error-message").slideUp();
+                        }else{
+                            // alert(data);
+                            $("#error-message").html(data).slideDown();
+                            setInterval(function(){
+                                $("#error-message").slideUp();
+                            },5000);
+                            $("#success-message").slideUp();
+                        }
+                    }
+                });
+                // $("#editstudentModal").hide();
+            });
+
             // delete data
             $(document).on("click",".delete-btn",function(){
             if(confirm("Do you Really want to delete this record?")){

@@ -27,7 +27,7 @@
     display:none;
     z-index: 10000000;
 }
-#addStudentModal{
+#addStudentModal,#editstudentModal{
     width: 100%;
     display: none;
     background-color: rgba(0,0,0,0.5);
@@ -36,7 +36,7 @@
     left:0;
     height: 100vh;
 }
-#addStudentModal #studentFormModal{
+#addStudentModal #studentFormModal,#editFormModal{
     position: absolute;
     left: 50%;
     top: 54%;
@@ -81,6 +81,24 @@
     position: absolute;
     top: 3px; /* Added some spacing from the top */
     right: 3px; /* Added some spacing from the right */
+    background-color: #3e3737;
+    color: white;
+    font-size: 16px; /* Makes the "X" or text inside more visible */
+    text-align: center; /* Centers the text horizontally */
+    line-height: 30px; /* Centers the text vertically */
+    border: none; /* Removes any default button styling */
+    border-radius: 50%; /* Makes the close button circular */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for better visibility */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    z-index: 1000000;
+}
+#editClose-btn{
+    width: 40px;
+    padding: 5px;
+    position: absolute;
+    top: 60px;
+    right: 281px;
     background-color: #3e3737;
     color: white;
     font-size: 16px; /* Makes the "X" or text inside more visible */
