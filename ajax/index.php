@@ -1,6 +1,7 @@
 <?php
 include ("connect_db.php");
 include ("header.php");
+
 ?>
 <body>
     <?php 
@@ -205,7 +206,22 @@ include ("header.php");
         });
     </script>
     <!-- JavaScript for Search -->
-    <script>
+     <script>
+        $("#searchInput").on("keyup",function(e){
+                var inputData = $(this).val();
+                // console.log(inputData);
+                $.ajax({
+                    url : "serachStudentData.php",
+                    type :"POST",
+                    data : {searchData : inputData},
+                    success : function(data){
+                        // console.log(data);
+                        $("#studentData").html(data);
+                    }
+                });
+            });
+     </script>
+    <!-- <script>
         document.getElementById('searchInput').addEventListener('keyup', function () {
             const filter = this.value.toLowerCase();
             const rows = document.querySelectorAll('#dataTable tbody tr');
@@ -216,6 +232,6 @@ include ("header.php");
                 row.style.display = match ? '' : 'none';
             });
         });
-    </script>
+    </script> -->
 </body>
 </html>
