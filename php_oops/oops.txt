@@ -1,0 +1,19 @@
+object oriented programing language
+
+how to write php?
+
+1) procedurel / core php
+2) oops concept 
+
+1) Well structured
+2) code resuablity
+
+
+big project / software -> oops 
+
+website -> core php
+
+
+oops 
+-> class
+-> object
