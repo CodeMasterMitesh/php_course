@@ -1,0 +1,39 @@
+In PHP, an interface is a contract that defines a set of methods that a class must implement. 
+An interface does not contain any implementation of the methods; it only declares them. 
+Classes that implement the interface must provide the actual implementation for all the methods defined in the interface.
+
+Key Points about Interfaces:
+Interfaces are defined using the interface keyword.
+A class can implement multiple interfaces.
+All methods in an interface are implicitly public.
+Interfaces cannot contain properties or method bodies (i.e., they cannot have implementations).
+Definition
+An interface is a blueprint for a class, which enforces that the class must implement specific methods declared in the interface.
+
+
+
+Why Use Interfaces?
+To enforce a set of methods for a group of related classes.
+To achieve polymorphism by defining a common behavior across unrelated classes.
+To ensure consistent implementation across multiple classes.
+
+
+interface A{
+    protected function sum($a,$b);
+}
+
+interface B{
+   protected function mul($a,$b);
+}
+
+Class Base implement A,B{
+    function sum($a,$b){
+        echo $a + $b;
+    }
+    function mul($a,$b){
+        echo $a + $b;
+    }
+}
+
+$b = new Base();
+$b->sum(15,20);
