@@ -82,11 +82,11 @@ class Database{
     }
 
     public function __destruct(){
-        
+        $this->mysqli->close();
     }
 
     private function tableExist(){
-        
+
     }
 
 }
