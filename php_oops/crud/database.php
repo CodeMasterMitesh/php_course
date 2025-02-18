@@ -21,7 +21,7 @@ class Database{
 
     public function insertDb($table,$columns=array()){
         if (!$this->mysqli) {
-            die("Database connection error!"); // Extra safety check
+            die("Database connection error!"); 
         }
         
         $columnsName = implode(',',array_keys($columns));
@@ -36,12 +36,45 @@ class Database{
         }
     }
 
-    public function updateDb(){
+    public function updateDb($table,$columns=array(),$where = null){
+        if (!$this->mysqli) {
+            die("Database connection error!"); 
+        }
+        $argu = array();
+        foreach ($columns as $key => $value) {
+            $argu[] = "$key='$value'";
+        }
+        $argu = implode(",", $argu);
 
+        $sql = "UPDATE $table SET $argu";
+        if($where){
+            $sql.=" WHERE $where";
+        }
+        // echo $sql;
+        $query = $this->mysqli->query($sql);
+        if($query){
+            echo "Upadte Successfully";
+        }else{
+            $this->mysqli->die($query);
+        }
     }
 
-    public function deleteDb(){
-
+    public function deleteDb($table,$where = null){
+        if (!$this->mysqli) {
+            die("Database connection error!"); 
+        }
+        
+        $sql = "DELETE FROM $table";
+        if($where){
+            $sql.=" WHERE $where";
+        }
+        // echo $sql;
+        $query = $this->mysqli->query($sql);
+        if($query){
+            echo "Delete Successfully";
+        }else{
+            $this->mysqli->die($query);
+        }
     }
 
     public function selectDb(){
@@ -52,6 +85,9 @@ class Database{
         
     }
 
+    private function tableExist(){
+        
+    }
 
 }
 
